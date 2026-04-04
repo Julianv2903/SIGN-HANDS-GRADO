@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Basico</title>
+    <link rel="stylesheet" href="evaluaciones.css">
+    <link rel="stylesheet" href="../headerstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <script src="evaluaciones.js"></script>
+</head>
+<body>
+   <header>
+<?php include '../header.php'; ?>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.php"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+
+    <div class="nav-links">
+       <a href="../tools.php">Herramientas</a>
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="../EVALUACION/Evaluaciones.php">Evaluate</a>
+        <div class="user-dropdown">
+        <span onclick="toggleDropdown()"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="SIGNIN/logout.php">Cerrar sesión</a>
+          </div>
+        </div>
+      <?php else: ?>
+        <a href="../SIGNIN/signin.php" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.php" class="sign-up">Registrarse</a>
+      <?php endif; ?>
+    </div>
+  </div>
+</header>
+    <div class="content">
+        <h2>Evaluacion de Preguntas Nivel   Basico</h2>
+        <form id="formulario">
+            <!-- Pregunta 1 -->
+            <div class="card pregunta activa" id="pregunta1">
+                <p>1) ¿Cual de las siguientes imagenes corresponde a la letra A ?</p>
+                <div class="options">
+                    <input type="radio" name="pregunta1" value="opcion a"> <img src="../ALFABETO/imagenes/a.jpg"> 
+                    <input type="radio" name="pregunta1" value="opcion e"> <img src="../ALFABETO/imagenes/E.png"> 
+                    <input type="radio" name="pregunta1" value="opcion j"> <img src="../ALFABETO/imagenes/J.png">
+                </div>
+                <div class="navigation">
+                    <button type="button" class="next-btn" onclick="siguiente(1, 2)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="card pregunta hidden" id="pregunta2">
+                <p>2) ¿Cual de las siguientes imagenes corresponde a la letra E ?</p>
+                <div class="options">
+                    <input type="radio" name="pregunta2" value="opcion a"> <img src="../ALFABETO/imagenes/a.jpg"> 
+                    <input type="radio" name="pregunta2" value="opcion e"> <img src="../ALFABETO/imagenes/E.png"> 
+                    <input type="radio" name="pregunta2" value="opcion j"> <img src="../ALFABETO/imagenes/J.png"> 
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(1)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(2, 3)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="card pregunta hidden" id="pregunta3">
+                <p>3) ¿Cual de las siguientes imagenes corresponde a la letra J ?</p>
+                <div class="options">
+                    <input type="radio" name="pregunta3" value="opcion a"> <img src="../ALFABETO/imagenes/a.jpg"> 
+                    <input type="radio" name="pregunta3" value="opcion e"> <img src="../ALFABETO/imagenes/E.png"> 
+                    <input type="radio" name="pregunta3" value="opcion j"> <img src="../ALFABETO/imagenes/J.png"> 
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(2)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(3, 4)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="card pregunta hidden" id="pregunta4">
+                <p>4) ¿Cual de las siguientes imagenes corresponde a la letra F ?</p>
+                <div class="options">
+                    <input type="radio" name="pregunta4" value="opcion f"> <img src="../ALFABETO/imagenes/F.png"> 
+                    <input type="radio" name="pregunta4" value="opcion r"> <img src="../ALFABETO/imagenes/R.png"> 
+                    <input type="radio" name="pregunta4" value="opcion t"> <img src="../ALFABETO/imagenes/T.png">
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(3)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(4, 5)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="card pregunta" id="pregunta5">
+                <p>5) ¿Cuál de las siguientes imágenes corresponde a la letra R?</p>
+                <div class="options">
+                    <label><input type="radio" name="pregunta5" value="f"><img src="../ALFABETO/imagenes/F.png"></label>
+                    <label><input type="radio" name="pregunta5" value="r"><img src="../ALFABETO/imagenes/R.png"></label>
+                    <label><input type="radio" name="pregunta5" value="t"><img src="../ALFABETO/imagenes/T.png"></label>
+                </div>
+            <div class="navigation">
+                <button type="button" class="prev-btn" onclick="anterior(4)">Anterior</button>
+                <button type="button" class="next-btn" onclick="finalizarEvaluacion()">Enviar</button>
+            </div>
+    </div>
+
+        </form>
+    </div>
+    
+</body>
+
+<footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+  <p> Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+  </div>
+  <div class="redessociales">
+    <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+   </div>  
+</footer>
+</html>

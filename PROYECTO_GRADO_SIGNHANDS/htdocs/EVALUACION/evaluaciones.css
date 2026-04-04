@@ -1,0 +1,138 @@
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenido principal */
+.main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos y etiquetas */
+h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Preguntas */
+.pregunta {
+    display: none;
+}
+.pregunta.activa {
+    display: block;
+}
+
+/* Tarjetas */
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+/* Opciones */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.option img {
+    width: 120px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.option input[type="radio"]:checked + img {
+    border-color: #007BFF;
+}
+
+.option span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* Navegación */
+.navigation {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.prev-btn, .next-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #0056b3;
+}
+
+.prev-btn:disabled, .next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Resultado */
+#resultado {
+    background-color: #eaf4ff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+#resultado p {
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.pregunta {
+    display: none;
+}
+
+.pregunta.activa {
+    display: block;
+}

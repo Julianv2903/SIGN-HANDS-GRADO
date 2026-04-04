@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foro - Buzón de Sugerencias</title>
+  <link rel="stylesheet" href="foro.css">
+  <link rel="stylesheet" href="../headerstyles.css">
+  <link rel="icon" href="../imagenes/logoblack.png" type="image/x-icon">
+</head>
+<body>
+  <div class="page-container">
+    <?php
+    ini_set('session.cookie_path', '/');
+    session_start();
+
+    $servername = "sql100.infinityfree.com";
+    $username = "if0_38978935";
+    $password = "L308YqRyjub3bW";
+    $dbname = "if0_38978935_signhands";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
+    $conn->set_charset("utf8");
+
+    $sql = "SELECT c.id, c.mensaje, c.fecha, u.nombre_completo, c.id_usuario
+            FROM comentarios c
+            INNER JOIN usuarios u ON c.id_usuario = u.id
+            ORDER BY c.fecha DESC";
+    $result = $conn->query($sql);
+    ?>
+
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+          <span>SignHands</span>
+        </div>
+        <div class="nav-links">
+          <a href="../tools.html">Herramientas</a>
+            <a href="../EVALUACION/Evaluaciones.html">Evaluate</a>
+            <div class="user-dropdown">
+              <span onclick="toggleDropdown()"></span>
+              <div id="dropdown-menu" class="dropdown-menu">
+                <a href="../SIGNIN/logout.html">Cerrar sesión</a>
+              </div>
+            </div>
+            <a href="../SIGNIN/signin.html" class="sign-in">Ingresar</a>
+            <a href="../SIGNUP/signup.html" class="sign-up">Registrarse</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <h2>Buzón de sugerencias</h2>
+
+      <?php if (isset($_SESSION['id_usuario'])): ?>
+        <p>Bienvenido, <strong><?= $_SESSION['usuario'] ?></strong></p>
+        <form action="crear_comentario.html" method="POST">
+          <textarea name="mensaje" required placeholder="Escribe tu sugerencia..."></textarea><br>
+          <button type="submit">Enviar</button>
+        </form>
+      <?php else: ?>
+        <p>Solo los usuarios registrados pueden comentar.</p>
+        <script>alert("Debes iniciar sesión o registrarte para comentar.");</script>
+      <?php endif; ?>
+
+      <hr>
+
+      <?php while ($fila = $result->fetch_assoc()): ?>
+        <div style="border:1px solid #ccc; margin-bottom:10px; padding:10px;">
+          <strong><?= htmlspecialchars($fila['nombre_completo']) ?></strong> dijo:
+          <p><?= nl2br(htmlspecialchars($fila['mensaje'])) ?></p>
+          <small><?= $fila['fecha'] ?></small><br>
+
+          <?php if (isset($_SESSION['id_usuario']) && $_SESSION['id_usuario'] == $fila['id_usuario']): ?>
+            <a href="editar_comentario.html?id=<?= $fila['id'] ?>">Editar</a> |
+            <a href="eliminar_comentario.html?id=<?= $fila['id'] ?>" onclick="return confirm('¿Estás seguro de eliminar este comentario?')">Eliminar</a>
+          <?php endif; ?>
+        </div>
+      <?php endwhile; ?>
+    </main>
+
+    <footer>
+      <div class="texto"> 
+        <p>SignHands</p>
+        <p>&copy; 2025 Vocabulario de Señas</p>
+        <p>Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+      </div>
+      <div class="redessociales">
+        <a href="https://youtube.com/@SignHandsCol"><img src="../imagenes/youtube.png" class="youtube"></a>
+      </div> 
+    </footer>
+  </div>
+</body>
+</html>

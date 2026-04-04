@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignHands</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../headerstyles.css">
+    <link rel="icon" href="../imagenes/logoblack.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+    <div class="nav-links">
+        <a href="../EVALUACION/Evaluaciones.html">Evaluate</a>
+        <div class="user-dropdown">
+        <span onclick="toggleDropdown()"></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="../SIGNIN/logout.html">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="../SIGNIN/signin.html" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.html" class="sign-up">Registrarse</a>
+    </div>
+  </div>
+</header>
+    <div class="pagina">
+        <div class="fondo">
+        <section class="registro">
+            <div class="registro-container">
+                <form action="signupdatabase.html" method="POST">
+                    <h1>Registro</h1>
+                    <input type="text" name="nombre" placeholder="Nombre de usuario" required>
+                    <input type="email" name="correo" placeholder="Correo electrónico" required>
+                    <input type="password" name="contrasena" placeholder="Contraseña" required>
+                    <button type="submit">Registrarse</button>
+                    <p>¿Ya tienes cuenta? <a href="../SIGNIN/signin.html">Inicia sesión</a></p>
+                </form>
+            </div>
+
+        </section>
+    </div>
+    </div>
+  </body>
+    <footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+  <p> Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+  </div>
+  <div class="redessociales">
+  <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+  </div> 
+  </footer> 
+</html>

@@ -1,0 +1,19 @@
+<script>
+  function toggleDropdown() {
+    const menu = document.getElementById('dropdown-menu');
+    menu.classList.toggle('show');
+  }
+
+  // Cierra el menú si haces clic fuera
+  window.onclick = function(e) {
+  // Si haces clic fuera del dropdown y del contenedor
+  if (!e.target.closest('.user-dropdown')) {
+    const dropdown = document.getElementById('dropdown-menu');
+    if (dropdown && dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    }
+  }
+};
+
+</script>
+

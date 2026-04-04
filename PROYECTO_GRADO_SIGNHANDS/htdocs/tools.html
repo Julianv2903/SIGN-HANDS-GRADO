@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Herramientas</title>
+  <link rel="stylesheet" href="headerstyles.css">
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header>
+  <div class="navbar">
+    <div class="logo">
+     <a href="index.html"><img src="imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+    <div class="nav-links">
+        <a href="EVALUACION/Evaluaciones.html">Evaluate</a>
+        <div class="user-dropdown">
+        <span onclick="toggleDropdown()"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="SIGNIN/logout.html">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="SIGNIN/signin.html" class="sign-in">Ingresar</a>
+        <a href="SIGNUP/signup.html" class="sign-up">Registrarse</a>
+    </div>
+  </div>
+</header>
+        <main class="tools">
+      <div class="card-block">
+       <a href="VOCABULARIO/vocabulario.html"><button class="feature-card">
+          <h3> Vocabulario</h3>
+          <p>Explora palabras comunes y su representación en señas.</p>
+        </button></a>
+        <a href="ALFABETO/alfabeto.html"><button class="feature-card">
+          <h3> Alfabeto</h3>
+          <p>Aprende el alfabeto en lenguaje de señas colombiano.</p>
+        </button></a>
+        <a href="PALABRADIA/palabra.html"><button class="feature-card">
+          <h3> Palabra del día</h3>
+          <p>Descubre una palabra nueva en señas cada día.</p>
+        </button></a>
+        <a href="FORO/foro.html"><button class="feature-card">
+          <h3>Foro</h3>
+          <p>Envíanos tus opiniones.</p>
+        </button></a>
+      </div>
+      </main>
+
+    <footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+  <p> Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+  </div>
+  <div class="redessociales">
+  <a href="https://youtube.com/@SignHandsCol" ><img src="imagenes/youtube.png" class="youtube"></a>
+  </div> 
+  </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Avanzado</title>
+    <link rel="stylesheet" href="evaluaciones.css">
+    <link rel="stylesheet" href="../headerstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <script src="evaluaciones.js"></script>
+</head>
+<body>
+   <header>
+<?php include '../header.php'; ?>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.php"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+
+    <div class="nav-links">
+       <a href="../tools.php">Herramientas</a>
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="../EVALUACION/Evaluaciones.php">Evaluate</a>
+        <div class="user-dropdown">
+        <span onclick="toggleDropdown()"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="SIGNIN/logout.php">Cerrar sesión</a>
+          </div>
+        </div>
+      <?php else: ?>
+        <a href="../SIGNIN/signin.php" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.php" class="sign-up">Registrarse</a>
+      <?php endif; ?>
+    </div>
+  </div>
+</header>
+
+    <div class="content">
+        <h2>Evaluación de Preguntas Nivel Avanzado</h2>
+        <form id="formulario">
+
+            <!-- Pregunta 1 -->
+            <div class="card pregunta activa" id="pregunta1">
+                <p>1) ¿Cuál de las siguientes imágenes corresponde al animal CANGREJO?</p> <br><br>
+                <div class="options">
+                    <input type="radio" name="pregunta1" value="opcion cangrejo"> <iframe width="200" height="260" src="https://www.youtube.com/embed/BHduqdSJvYU?autoplay=1&loop=1&mute=1&playlist=BHduqdSJvYU"></iframe>
+                    <input type="radio" name="pregunta1" value="opcion a"> <img src="../ALFABETO/imagenes/a.jpg"> 
+                    <input type="radio" name="pregunta1" value="opcion t"> <img src="../ALFABETO/imagenes/T.png">
+                </div>
+                <div class="navigation">
+                    <button type="button" class="next-btn" onclick="siguiente(1, 2)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="card pregunta hidden" id="pregunta2">
+                <p>2) ¿Cuál de las siguientes imágenes corresponde a la letra X?</p> <br><br>
+                <div class="options">
+                    <input type="radio" name="pregunta2" value="opcion abuelo"> <iframe width="200" height="260" src="https://www.youtube.com/embed/EgKLeGrG_6c?autoplay=1&loop=1&mute=1&playlist=EgKLeGrG_6c"></iframe> 
+                    <input type="radio" name="pregunta2" value="opcion x"> <img src="../ALFABETO/imagenes/X.png">
+                    <input type="radio" name="pregunta2" value="opcion correr"> <iframe width="200" height="260" src="https://www.youtube.com/embed/v5z8yIFVAh0?autoplay=1&loop=1&mute=1&playlist=v5z8yIFVAh0"></iframe>
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(1)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(2, 3)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="card pregunta hidden" id="pregunta3">
+                <p>3) ¿Cuál de las siguientes imágenes corresponde a la letra M?</p> <br><br>
+                <div class="options">
+                    <label><input type="radio" name="pregunta5" value="M"><img src="../ALFABETO/imagenes/M.png"></label>
+                    <label><input type="radio" name="pregunta5" value="K"><img src="../ALFABETO/imagenes/K.png"></label>
+                    <label><input type="radio" name="pregunta5" value="S"><img src="../ALFABETO/imagenes/S.png"></label>
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(2)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(3, 4)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="card pregunta hidden" id="pregunta4">
+                <p>4) ¿Cuál de las siguientes imágenes corresponde a una AMBULANCIAR?</p> <br><br>
+                <div class="options">
+                    <label><input type="radio" name="pregunta5" value="ambulancia"><iframe width="200" height="260" src="https://www.youtube.com/embed/KAz-yjfOQTQ?autoplay=1&loop=1&mute=1&playlist=KAz-yjfOQTQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <label><input type="radio" name="pregunta5" value="lunes"><iframe width="200" height="260" src="https://www.youtube.com/embed/GatDjlLOeyw?autoplay=1&loop=1&mute=1&playlist=GatDjlLOeyw"></iframe></label>
+                    <input type="radio" name="pregunta4" value="opcion celoso"> <iframe width="200" height="260" src="https://www.youtube.com/embed/YE0oGe0yApY?autoplay=1&loop=1&mute=1&playlist=YE0oGe0yApY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(3)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="siguiente(4, 5)">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="card pregunta hidden" id="pregunta5">
+                <p>5) ¿Cuál de las siguientes imágenes corresponde a la profesión de PROFESOR?</p> <br><br>
+                <div class="options">
+                    <label><input type="radio" name="pregunta5" value="profesor"><iframe width="200" height="260" src="https://www.youtube.com/embed/VmYsmDJUDB4?autoplay=1&loop=1&mute=1&playlist=VmYsmDJUDB4"></iframe></label>
+                    <label><input type="radio" name="pregunta5" value="lunes"><iframe width="200" height="260" src="https://www.youtube.com/embed/GatDjlLOeyw?autoplay=1&loop=1&mute=1&playlist=GatDjlLOeyw"></iframe></label>
+                    <label><input type="radio" name="pregunta5" value="mandarina"><iframe width="200" height="260" src="https://www.youtube.com/embed/9PnO9ROTUB4?autoplay=1&loop=1&mute=1&playlist=9PnO9ROTUB4"></iframe></label>
+                </div>
+                <div class="navigation">
+                    <button type="button" class="prev-btn" onclick="anterior(4)">Anterior</button>
+                    <button type="button" class="next-btn" onclick="finalizarEvaluacion()">Enviar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    
+</body>
+
+<footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+    <p>Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+  </div>
+  <div class="redessociales">
+    <a href="https://youtube.com/@SignHandsCol"><img src="../imagenes/youtube.png" class="youtube"></a>
+  </div>  
+</footer>
+</html>

@@ -1,0 +1,29 @@
+<?php
+ini_set('session.cookie_path', '/');
+session_start();
+$servername = "sql100.infinityfree.com";
+$username = "if0_38978935";
+$password = "L308YqRyjub3bW";
+$dbname = "if0_38978935_signhands";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Asegurar codificación UTF-8
+$conn->set_charset("utf8");
+
+if (isset($_SESSION['id_usuario']) && isset($_POST['mensaje'])) {
+    $id_usuario = $_SESSION['id_usuario'];
+    $mensaje = $conn->real_escape_string($_POST['mensaje']);
+
+    $sql = "INSERT INTO comentarios (id_usuario, mensaje) VALUES ('$id_usuario', '$mensaje')";
+    $conn->query($sql);
+}
+
+header("Location: foro.php");
+exit();

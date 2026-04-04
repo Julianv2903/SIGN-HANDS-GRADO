@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    background-color: rgb(255, 255, 255); /* azul cielo, 50% transparente */
+    color: #333;
+    border: none; /* Elimina cualquier borde */
+}
+
+main {
+    flex: 1;
+    margin-top: 0%;
+}
+
+/* Estilo para las tarjetas de video */
+.video-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px;
+
+}
+
+/* Estilo de cada tarjeta */
+.card {
+    width: 280px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(140, 149, 167, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-top: 0%;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h1 {
+    font-size: 18px;
+    margin: 1px 0;
+}
+
+.video-container {
+    width: 100%;
+    height: 280px; /* Altura fija para los videos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.card-info {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.text-title {
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Botones y tarjetas de otras secciones */
+.card-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.feature-card {
+    position: relative;
+    border-radius: 15px;
+    width: 260px;
+    height: 200px;
+    padding: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    border: none;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Oscurece el fondo */
+    z-index: 1;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3,
+.feature-card p {
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #fefefe;
+}
+
+.feature-card p {
+    font-size: 17px;
+    color: #fff9f9;
+}
+
+.feature-card.familia {
+    background-image: url('IMAGENES/FAMILIA.jpg');
+}
+
+.feature-card.educacion {
+    background-image: url('IMAGENES/EDUCACION.jpg');
+}
+
+.feature-card.salud {
+    background-image: url('IMAGENES/SALUD.jpg');
+}
+
+.feature-card.comida {
+    background-image: url('IMAGENES/COMIDA.jpg');
+}
+
+.feature-card.direcciones {
+    background-image: url('IMAGENES/DIRECCIONES.jpg');
+}
+
+.feature-card.tiempo {
+    background-image: url('IMAGENES/TIEMPO.jpg');
+}
+
+.feature-card.verbos {
+    background-image: url('IMAGENES/VERBOS.jpg');
+}
+
+.feature-card.emociones {
+    background-image: url('IMAGENES/EMOCIONES.jpg');
+}
+
+.feature-card.animales {
+    background-image: url('IMAGENES/ANIMALES.jpg');
+}
+
+/* Para quitar subrayado en enlaces */
+a {
+    text-decoration: none;
+}

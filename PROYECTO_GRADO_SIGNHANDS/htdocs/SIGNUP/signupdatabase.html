@@ -1,0 +1,36 @@
+<!--OJO HACER EL CAMBIO CON INTERACCION DE JS -->
+ <?php
+$servername = "sql100.infinityfree.com";
+$username = "if0_38978935";
+$password = "L308YqRyjub3bW"; // reemplaza esto por la contraseña real
+$dbname = "if0_38978935_signhands";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// acentos
+$conn->set_charset("utf8");
+
+// Obtener datos del formulario
+$nombre = $_POST['nombre'];
+$correo = $_POST['correo'];
+$contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT); // Encriptar contraseña
+
+// Insertar datos
+$sql = "INSERT INTO usuarios (nombre_completo, correo_electronico, contrasena) 
+        VALUES ('$nombre', '$correo', '$contrasena')";
+
+if ($conn->query($sql) === TRUE) {
+    // Redirigir al login
+    header("Location: ../SIGNIN/signin.php");
+    exit(); // Importante para detener el script después de redirigir
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+

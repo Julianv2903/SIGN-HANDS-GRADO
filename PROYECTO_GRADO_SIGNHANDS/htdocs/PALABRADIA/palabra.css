@@ -1,0 +1,44 @@
+#palabra-del-dia {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  flex: 1;
+}
+
+#contenido-palabra {
+  background-color: white;
+  padding: 1.5rem;
+  margin: auto;
+  border-radius: 16px;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+#contenido-palabra:hover {
+  transform: scale(1.02);
+}
+
+#contenido-palabra img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
+}
+
+#btn-nueva-palabra {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#btn-nueva-palabra:hover {
+  background-color: #2563eb;
+  color: white;
+}
+

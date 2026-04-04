@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family:inherit;
+    background-color: #f8fafc;
+  }
+  
+  .pagina {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .fondo {
+    flex: 1;
+    background: url('imagenes/hand-3035665_1280.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .registro-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  form h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  form input {
+    display: block;
+    width: 90%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form p {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  form a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  footer {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  footer p {
+    margin-top: 15px;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 600px) {
+    .registro-container {
+      padding: 1rem;
+    }
+  
+    form input{
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 81%;
+        font-size: 0.9rem;
+        padding: 0.65rem;
+    }
+    form button {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 90%;
+        font-size: 0.9rem;
+        padding: 0.65rem;
+    }
+  
+    footer {
+      font-size: 0.875rem;
+      padding: 0.75rem;
+    }
+  
+    footer p {
+      margin-top: 10px;
+    }
+  }
+  

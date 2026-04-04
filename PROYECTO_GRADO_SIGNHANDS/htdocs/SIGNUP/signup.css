@@ -1,0 +1,124 @@
+/* Estructura base para altura completa */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .pagina {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Fondo con imagen y expansión */
+  .fondo {
+    flex: 1;
+    background-image: url('imagenes/hand-3035665_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Registro centrado */
+  .registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100%;
+  }
+  
+  /* Contenedor del formulario */
+  .registro-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+  
+  .registro-container h2 {
+    color: #2962FF;
+    margin-bottom: 1.5rem;
+  }
+  
+  .registro-container input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .registro-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2962FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .registro-container button:hover {
+    background-color: #0039cb;
+  }
+  
+  .registro-container p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .registro-container a {
+    color: #2962FF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .registro-container a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  /* Responsive para celulares */
+  @media (max-width: 600px) {
+    .registro {
+      padding: 1.5rem 1rem;
+    }
+  
+    .registro-container {
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+  
+    .registro-container input{
+        width: 90%;
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+    .registro-container button {
+        width: 97%;
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+  
+    .registro-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .registro-container p {
+      font-size: 0.85rem;
+    }
+  
+    footer {
+      font-size: 0.875rem;
+    }
+  }
+  

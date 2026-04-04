@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicios</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="evaluaciones.css">
+    <link rel="stylesheet" href="../headerstyles.css">
+
+    <!-- Tipografía moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<?php include '../header.php'; ?>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.php"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+
+    <div class="nav-links">
+       <a href="../tools.php">Herramientas</a>
+      <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="../EVALUACION/Evaluaciones.php">Evaluate</a>
+        <div class="user-dropdown">
+        <span onclick="toggleDropdown()"><?php echo htmlspecialchars($_SESSION['usuario']); ?></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="../SIGNIN/logout.php">Cerrar sesión</a>
+          </div>
+        </div>
+      <?php else: ?>
+        <a href="../SIGNIN/signin.php" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.php" class="sign-up">Registrarse</a>
+      <?php endif; ?>
+    </div>
+  </div>
+</header>
+<div class="page-container">
+    <!-- Contenido -->
+    <div class="main">
+        <h2>Evaluaciones para aprendizaje</h2>
+
+        <div class="card-container">
+            <a href="basico.php" class="card">
+                <h3>Ejercicio básico</h3>
+            </a>
+            <a href="medio.php" class="card">
+                <h3>Ejercicio medio</h3>
+            </a>
+            <a href="avanzados.php" class="card">
+                <h3>Ejercicio avanzado</h3>
+            </a>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer>
+          <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+  <p> Realizado por Maicol Lopez, John Yate, Julian Villamarin, Juan Vargas</p>
+  </div>
+  <div class="redessociales">
+    <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+   </div>  
+    </footer>
+
+</body>
+</html>
+    
