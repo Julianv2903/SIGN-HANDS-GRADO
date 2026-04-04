@@ -46,6 +46,6 @@ function finalizarEvaluacion() {
     }
 
     alert("¡Evaluación finalizada!");
-    window.location.href = "../EVALUACION/Evaluaciones.php";
+    window.location.href = "../EVALUACION/Evaluaciones.html";
 }
 
