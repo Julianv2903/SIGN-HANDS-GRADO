@@ -14,16 +14,17 @@
         <span>SignHands</span>
       </div>
       <div class="nav-links">
+        <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
          <a href="../tools.php">Herramientas</a>
-          <a href="../EVALUACION/Evaluaciones.html">Evaluate</a>
-          <div class="user-dropdown">
+          <a href="../EVALUACION/Evaluaciones.html"id="evaluaciones-link" style="display: none;">Evaluate</a>
+          <div class="user-dropdown" id="user-dropdown" style="display: none;">
             <span onclick="toggleDropdown()"></span>
             <div id="dropdown-menu" class="dropdown-menu">
-              <a href="SIGNIN/logout.html">Cerrar sesión</a>
+              <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
             </div>
           </div>
-          <a href="../SIGNIN/signin.html" class="sign-in">Ingresar</a>
-          <a href="../SIGNUP/signup.html" class="sign-up">Registrarse</a>
+          <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+          <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
       </div>
     </div>
   </header>
@@ -122,5 +123,9 @@
   <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
   </div>  
   </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
 </body>
 </html>

@@ -12,19 +12,20 @@
     <header>
   <div class="navbar">
     <div class="logo">
-     <a href="../index.html"><img src="imagenes/logoblack.png" alt="SignHands Logo"></a>
+     <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
       <span>SignHands</span>
     </div>
     <div class="nav-links">
-        <a href="../EVALUACION/Evaluaciones.html">Evaluate</a>
-        <div class="user-dropdown">
+        <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
+        <a href="../EVALUACION/Evaluaciones.html" id="evaluaciones-link" style="display: none;">Evaluate</a>
+        <div class="user-dropdown" id="user-dropdown" style="display: none;">
         <span onclick="toggleDropdown()"></span>
           <div id="dropdown-menu" class="dropdown-menu">
-            <a href="../SIGNIN/logout.html">Cerrar sesión</a>
+            <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
           </div>
         </div>
-        <a href="../SIGNIN/signin.html" class="sign-in">Ingresar</a>
-        <a href="../SIGNUP/signup.html" class="sign-up">Registrarse</a>
+        <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
     </div>
   </div>
 </header>
@@ -35,7 +36,10 @@
           <form>
             <h1>Iniciar sesión</h1>
               <input type="email" id="correo" placeholder="Correo electrónico" required>
-              <input type="password" id="password" placeholder="Contraseña" required>
+              <div class="password-field">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="button" id="toggle-password-login" class="password-toggle" aria-label="Mostrar contraseña">👁️</button>
+              </div>
                 <button type="submit">Entrar</button>
                   <p>¿No tienes cuenta? <a href="../SIGNUP/signup.html">Regístrate</a></p>
           </form>
@@ -53,8 +57,14 @@
   </div>
   <div class="redessociales">
   <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
-  </div> 
+  </div>
   </footer>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/login.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
+</body>
   
 </html>

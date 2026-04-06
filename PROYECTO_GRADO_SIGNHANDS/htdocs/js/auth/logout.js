@@ -14,15 +14,30 @@ function esperar(condicion, timeout = 5000) {
   });
 }
 
+function obtenerRutaSalida() {
+  const path = window.location.pathname;
+  const estaEnEvaluate = path.toLowerCase().includes("/evaluacion/");
+
+  if (estaEnEvaluate) {
+    console.log("Usuario estaba en Evaluate, redirigiendo a index.html");
+    return "../index.html";
+  }
+
+  console.log("Usuario no estaba en Evaluate, recargando la misma página:", path);
+  return window.location.href;
+}
+
 async function logout() {
   try {
     await esperar(() => window.supabaseClient !== undefined);
     console.log("Cerrando sesión...");
     await window.supabaseClient.auth.signOut();
     console.log("Sesión cerrada exitosamente");
-    window.location.href = "../SIGNIN/signin.html";
+    alert("Sesión cerrada correctamente.");
+    window.location.replace(obtenerRutaSalida());
   } catch (error) {
     console.error("Error al cerrar sesión:", error);
-    window.location.href = "../SIGNIN/signin.html";
+    alert("Sesión cerrada correctamente.");
+    window.location.replace(obtenerRutaSalida());
   }
 }

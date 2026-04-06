@@ -84,6 +84,22 @@ header {
   color: #2563eb;
 }
 
+.logout-button {
+  background-color: white;
+  color: #2563eb;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #f1f5f9;
+}
+
 .user-dropdown {
   position: relative;
   display: inline-block;
