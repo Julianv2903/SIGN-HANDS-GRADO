@@ -1,56 +1,17 @@
-<!--HACER CAMBIO DE CONDICIOS PARA JS -->
-<?php
-ini_set('session.cookie_path', '/'); // 🔒 La sesión será válida para todo el sitio
-session_start(); // Iniciar sesión correctamente
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-$servername = "sql100.infinityfree.com";
-$username = "if0_38978935";
-$password = "L308YqRyjub3bW";
-$dbname = "if0_38978935_signhands";
+    <!-- conexión -->
+    <script src="../js/supabase.js"></script>
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Validar que se recibieron los datos correctamente
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['correo']) && isset($_POST['contrasena'])) {
-    $correo = $_POST['correo'];
-    $contrasena = $_POST['contrasena'];
-
-    // Buscar usuario por correo
-    $sql = "SELECT * FROM usuarios WHERE correo_electronico = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $correo);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $usuario = $result->fetch_assoc();
-
-        // Verificar contraseña
-        if (password_verify($contrasena, $usuario['contrasena'])) {
-            $_SESSION['usuario'] = $usuario['nombre_completo'];
-            $_SESSION['correo'] = $usuario['correo_electronico'];
-            $_SESSION['id_usuario'] = $usuario['id'];
-
-            // ✅ Redirigir al index principal
-            header("Location: ../index.php");
-            exit();
-        } else {
-            echo "Contraseña incorrecta.";
-        }
-    } else {
-        echo "No existe una cuenta con ese correo.";
-    }
-
-    $stmt->close();
-} else {
-    echo "Por favor completa todos los campos.";
-}
-
-$conn->close();
-?>
+    <!-- lógica -->
+    <script src="../js/auth/login.js"></script>
+</body>
+</html>
