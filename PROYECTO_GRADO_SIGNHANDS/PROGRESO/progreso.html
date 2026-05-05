@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progreso - SignHands</title>
+  <link rel="stylesheet" href="progreso.css">
+  <link rel="stylesheet" href="../headerstyles.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+        <span>SignHands</span>
+      </div>
+      <div class="nav-links">
+        <a href="../tools.html">Herramientas</a>
+        <a href="../EVALUACION/Evaluaciones.html" id="evaluaciones-link" style="display: none;">Evaluate</a>
+        <div class="user-dropdown" id="user-dropdown" style="display: none;">
+          <span onclick="toggleDropdown()"></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="progress-page">
+    <section class="progress-summary">
+      <h1>Mi progreso</h1>
+      <div class="summary-grid" id="resumen-progreso">
+        <div class="stat-card">
+          <p>Última sesión</p>
+          <strong id="ultima-sesion">Cargando...</strong>
+        </div>
+        <div class="stat-card">
+          <p>Días conectados</p>
+          <strong id="dias-conectados">Cargando...</strong>
+        </div>
+        <div class="stat-card">
+          <p>Tiempo activo total</p>
+          <strong id="tiempo-total">Cargando...</strong>
+        </div>
+        <div class="stat-card">
+          <p>Registro de sesiones</p>
+          <strong id="registro-sesiones">Cargando...</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-details">
+      <h2>Historial de sesiones</h2>
+      <div id="sesiones-container">
+        <p id="mensajes-sesiones">Cargando historial...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="texto">
+      <p>SignHands</p>
+      <p>&copy; 2025 Vocabulario de Señas</p>
+          <p>Realizado por Oscar Julian Villamarin Wilches, Juan Fernando Caicedo Cortes</p>
+    </div>
+    <div class="redessociales">
+      <a href="https://youtube.com/@SignHandsCol"><img src="../imagenes/youtube.png" class="youtube"></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/protect.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
+  <script src="progreso.js"></script>
+</body>
+</html>

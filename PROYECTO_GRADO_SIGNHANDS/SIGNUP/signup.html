@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignHands</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../headerstyles.css">
+    <link rel="icon" href="../imagenes/logoblack.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+    <div class="nav-links">
+        <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
+        <a href="../EVALUACION/Evaluaciones.html" id="evaluaciones-link" style="display: none;">Evaluate</a>
+        <div class="user-dropdown" id="user-dropdown" style="display: none;">
+        <span onclick="toggleDropdown()"></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
+    </div>
+  </div>
+</header>
+    <div class="pagina">
+        <div class="fondo">
+        <section class="registro">
+            <div class="registro-container">
+                <form>
+                    <h1>Registro</h1>
+                    <input type="text" id="nombre" placeholder="Nombre de usuario" required>
+                    <input type="email" id="correo" placeholder="Correo electrónico" required>
+                    <div class="password-field">
+                      <input type="password" id="password" placeholder="Contraseña" required>
+                      <button type="button" id="toggle-password-signup" class="password-toggle" aria-label="Mostrar contraseña">👁️</button>
+                    </div>
+                    <button type="submit">Registrarse</button>
+                    <p>¿Ya tienes cuenta? <a href="../SIGNIN/signin.html">Inicia sesión</a></p>
+                </form>
+            </div>
+
+        </section>
+    </div>
+    </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/register.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
+</body>
+    <footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+      <p>Realizado por Oscar Julian Villamarin Wilches, Juan Fernando Caicedo Cortes</p>
+  </div>
+  <div class="redessociales">
+  <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+  </div> 
+  </footer> 
+</html>

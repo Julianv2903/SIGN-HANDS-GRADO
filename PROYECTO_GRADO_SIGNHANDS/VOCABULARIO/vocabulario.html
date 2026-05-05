@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Vocabulario de Señas</title>
+  <link rel="stylesheet" href="../headerstyles.css">
+  <link rel="stylesheet" href="vocabulario.css" />
+</head>
+<body>
+<header>
+  <div class="navbar">
+    <div class="logo">
+     <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo"></a>
+      <span>SignHands</span>
+    </div>
+
+    <div class="nav-links">
+        <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
+       <a href="../tools.html">Herramientas</a>
+        <a href="../EVALUACION/Evaluaciones.html"id="evaluaciones-link" style="display: none;">Evaluate</a>
+        <div class="user-dropdown" id="user-dropdown" style="display: none;">
+        <span onclick="toggleDropdown()"></span>
+          <div id="dropdown-menu" class="dropdown-menu">
+            <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+        <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
+    </div>
+  </div>
+</header>
+  
+ 
+  <main>
+    <div class="content">
+  <h1>Vocabulario de Señas</h1>
+  <p>Aprende visualmente con imágenes de signos.</p>
+    <div class="card-block">
+        <!-- FAMILIA-->
+        <a href="familia.html"><button class="feature-card familia">
+           <h3> Familia</h3>
+           <p> (madre, padre, hermano...)</p>
+         </button></a>
+
+         <!-- EDUCACION-->
+         <a href="educacion.html"><button class="feature-card educacion">
+           <h3> Educación</h3>
+           <p>(escuela, maestro, estudiar...)</p>
+         </button></a>
+
+         <!-- SALUD-->
+         <a href="salud.html"><button class="feature-card salud">
+           <h3> Salud</h3>
+           <p>(doctor, hospital, medicina...)</p>
+         </button></a>
+
+         <!-- COMIDA-->
+         <a href="comida.html"><button class="feature-card comida">
+           <h3> Comida</h3>
+           <p> (agua, arroz, fruta...)</p>
+         </button></a>
+
+         <!-- DIRECCIONES Y LUGARES-->
+         <a href="lugares.html"><button class="feature-card direcciones">
+            <h3> Direcciones y lugares</h3>
+            <p>(casa, calle, tienda...)</p>
+          </button></a>
+
+          <!-- TIEMPO-->
+          <a href="tiempo.html"><button class="feature-card tiempo">
+            <h3> Tiempo</h3>
+            <p>(día, noche, ayer, mañana...)</p>
+          </button></a>
+
+          <!-- VERBOS COMUNES-->
+          <a href="verbos.html"><button class="feature-card verbos">
+            <h3> Verbos comunes</h3>
+            <p>(comer, dormir, correr...)</p>
+          </button></a>
+
+          <!-- EMOCIONES-->
+          <a href="emociones.html"><button class="feature-card emociones">
+            <h3> Emociones</h3>
+            <p>(feliz, triste, enojado...)</p>
+          </button></a>
+
+          <!-- ANIMALES-->
+          <a href="animales.html"><button class="feature-card animales">
+            <h3> Animales</h3>
+            <p>(perro, gato, pájaro...)</p>
+          </button></a>
+
+       </div>
+       </div>
+  </main>
+
+  <footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+      <p>Realizado por Oscar Julian Villamarin Wilches, Juan Fernando Caicedo Cortes</p>
+  </div>
+  <div class="redessociales">
+  <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+  </div> 
+  </footer>
+
+  <script src=></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
+</body>
+
+    </html>

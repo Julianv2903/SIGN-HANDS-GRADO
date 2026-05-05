@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vocabulario de Señas - Emociones</title>
+  <link rel="stylesheet" href="vocabulario.css" />
+  <link rel="stylesheet" href="../headerstyles.css">
+    <header>
+    <div class="navbar">
+      <div class="logo">
+      <a href="../index.html"><img src="../imagenes/logoblack.png" alt="SignHands Logo">
+        </a>
+        <span>SignHands</span>
+      </div>
+      <div class="nav-links">
+        <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
+         <a href="../tools.html">Herramientas</a>
+          <a href="../EVALUACION/Evaluaciones.html"id="evaluaciones-link" style="display: none;">Evaluate</a>
+          <div class="user-dropdown" id="user-dropdown" style="display: none;">
+            <span onclick="toggleDropdown()"></span>
+            <div id="dropdown-menu" class="dropdown-menu">
+              <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
+            </div>
+          </div>
+          <a href="../SIGNIN/signin.html" id="login-link" class="sign-in">Ingresar</a>
+          <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+</head>
+<body>
+
+  <main>
+
+<!-- Contenedor de las tarjetas de video -->
+<div class="video-cards">
+  <!-- Tarjeta 1 -->
+  <div class="card">
+    <div class="content">
+      <h1>ASOMBRO</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/oQuZVRHekGI?autoplay=1&loop=1&mute=1&playlist=oQuZVRHekGI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>AMOR</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/hP8Q93bEzbY?autoplay=1&loop=1&mute=1&playlist=hP8Q93bEzbY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>FELICIDAD</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/NKQHviuJUGs?autoplay=1&loop=1&mute=1&playlist=NKQHviuJUGs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>CELOSO</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/YE0oGe0yApY?autoplay=1&loop=1&mute=1&playlist=YE0oGe0yApY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>VERGÜENZA</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/1jOXxk0CYMs?autoplay=1&loop=1&mute=1&playlist=1jOXxk0CYMs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>LLORAR</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/hoJrYkxkcaM?autoplay=1&loop=1&mute=1&playlist=hoJrYkxkcaM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>GRATITUD</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/WEk6N0AmKps?autoplay=1&loop=1&mute=1&playlist=WEk6N0AmKps" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>INTERÉS</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/8g0OWfRlu_I?autoplay=1&loop=1&mute=1&playlist=8g0OWfRlu_I" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="content">
+      <h1>ENOJO</h1>
+      <div class="video-container">
+        <iframe width="200" height="260" src="https://www.youtube.com/embed/Jc5T3DrbVmo?autoplay=1&loop=1&mute=1&playlist=Jc5T3DrbVmo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+  </main>
+
+  <footer>
+  <div class="texto"> 
+    <p>SignHands</p>
+    <p>&copy; 2025 Vocabulario de Señas</p>
+      <p>Realizado por Oscar Julian Villamarin Wilches, Juan Fernando Caicedo Cortes</p>
+  </div>
+  <div class="redessociales">
+    <a href="https://youtube.com/@SignHandsCol" ><img src="../imagenes/youtube.png" class="youtube"></a>
+   </div> 
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth/user.js"></script>
+  <script src="../js/auth/logout.js"></script>
+</body>
+</html>
