@@ -159,7 +159,7 @@ function crearMenuHerramientas() {
   wrapper.appendChild(dropdownMenu);
 }
 
-function crearMenuUsuario(usuario) {
+async function crearMenuUsuario(usuario) {
   const userDropdown = document.getElementById("user-dropdown");
   if (!userDropdown) {
     return;
@@ -171,7 +171,13 @@ function crearMenuUsuario(usuario) {
     userDropdown.appendChild(userDropdownSpan);
   }
 
-  userDropdownSpan.textContent = usuario.nombre || usuario.correo;
+  // Obtener puntos y nivel del usuario
+  const puntos = await obtenerPuntosUsuario(usuario.id);
+  
+  // Mostrar nombre y puntos en el span
+  const textoNombre = usuario.nombre || usuario.correo;
+  const textoPuntos = puntos ? ` (Lvl${puntos.nivel} 🏆 ${puntos.puntos_totales}pts)` : "";
+  userDropdownSpan.textContent = textoNombre + textoPuntos;
   userDropdownSpan.classList.add("user-name-link");
 
   let dropdownMenu = userDropdown.querySelector(".dropdown-menu");
@@ -182,6 +188,26 @@ function crearMenuUsuario(usuario) {
   }
 
   dropdownMenu.innerHTML = "";
+
+  // Mostrar información detallada de progreso en el dropdown
+  if (puntos) {
+    const infoPuntos = document.createElement("div");
+    infoPuntos.className = "puntos-info";
+    infoPuntos.innerHTML = `
+      <div class="puntos-header">
+        <strong>Nivel ${puntos.nivel}</strong> 🏆
+      </div>
+      <div class="puntos-stats">
+        <p><strong>${puntos.puntos_totales}</strong> puntos totales</p>
+        <p>Falta <strong>${puntos.puntos_para_siguiente_nivel}</strong> pts para siguiente nivel</p>
+      </div>
+    `;
+    dropdownMenu.appendChild(infoPuntos);
+    
+    // Agregar separador
+    const separador = document.createElement("hr");
+    dropdownMenu.appendChild(separador);
+  }
 
   const opciones = [
     { texto: "Ver progreso", href: obtenerRutaProgreso() }
@@ -196,6 +222,27 @@ function crearMenuUsuario(usuario) {
 
   configurarDropdownUsuario(userDropdown);
   marcarPaginaActiva();
+}
+
+// Obtener puntos y nivel del usuario desde Supabase
+async function obtenerPuntosUsuario(userId) {
+  try {
+    const { data, error } = await window.supabaseClient
+      .from("usuarios")
+      .select("puntos_totales, nivel, puntos_para_siguiente_nivel, evaluaciones_completadas")
+      .eq("id", userId)
+      .single();
+
+    if (error) {
+      console.warn("Error obteniendo puntos del usuario:", error);
+      return null;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error en obtenerPuntosUsuario:", error);
+    return null;
+  }
 }
 
 function obtenerRutaNormalizada(ruta) {
