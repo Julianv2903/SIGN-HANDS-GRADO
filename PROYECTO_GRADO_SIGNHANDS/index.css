@@ -192,7 +192,10 @@ body {
 }
 
 footer{
-    position: fixed;
+  bottom: 0;         /* Lo ancla al borde inferior */
+  left: 0;           /* Lo alinea a la izquierda */
+  width: 100%;       /* Ocupa todo el ancho */
+  z-index: 1000; 
 }
 @media (max-width: 768px) {
 footer {
