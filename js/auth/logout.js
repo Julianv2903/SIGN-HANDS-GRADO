@@ -117,6 +117,32 @@ async function finalizarSesion() {
   }
 }
 
+function mostrarSplashSalida() {
+  const splash = document.createElement("div");
+  splash.id = "logout-splash";
+  splash.style.position = "fixed";
+  splash.style.inset = "0";
+  splash.style.background = "rgba(15, 23, 42, 0.92)";
+  splash.style.display = "flex";
+  splash.style.alignItems = "center";
+  splash.style.justifyContent = "center";
+  splash.style.zIndex = "9999";
+  splash.innerHTML = `
+    <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); backdrop-filter: blur(14px); padding: 2rem 2.5rem; border-radius: 18px; text-align: center; max-width: 420px; width: 90%;">
+      <h2 style="margin:0 0 1rem; color:#f8fafc; font-size:2rem;">Te esperamos de nuevo</h2>
+      <p style="margin:0; color:#d1d5db; font-size:1rem;">Gracias por visitar SignHands. Tu sesión ha terminado.</p>
+    </div>
+  `;
+  document.body.appendChild(splash);
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      splash.remove();
+      resolve();
+    }, 1700);
+  });
+}
+
 function obtenerRutaSalida() {
   const path = window.location.pathname;
   const estaEnEvaluate = path.toLowerCase().includes("/evaluacion/");
@@ -137,11 +163,11 @@ async function logout() {
     await finalizarSesion();
     await window.supabaseClient.auth.signOut();
     console.log("Sesión cerrada exitosamente");
-    alert("Sesión cerrada correctamente.");
+    await mostrarSplashSalida();
     window.location.replace(obtenerRutaSalida());
   } catch (error) {
     console.error("Error al cerrar sesión:", error);
-    alert("Sesión cerrada correctamente.");
+    await mostrarSplashSalida();
     window.location.replace(obtenerRutaSalida());
   }
 }

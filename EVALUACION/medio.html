@@ -21,6 +21,7 @@
     <div class="nav-links">
         <!-- Session-aware navigation: user menu and Evaluate link shown only cuando el usuario está logueado -->
        <a href="../tools.html">Herramientas</a>
+          <a href="../BUSCAR/buscar.html">Buscar</a>
       <?php if (isset($_SESSION['usuario'])): ?>
         <a href="../EVALUACION/Evaluaciones.html"id="evaluaciones-link" style="display: none;">Evaluate</a>
         <div class="user-dropdown" id="user-dropdown" style="display: none;">
@@ -113,7 +114,7 @@
         </form>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" integrity="sha384-4eCDoMN/7A46qQ5Tj0rZ/D2VEolFGNIINDTLAcWZcvhkRSsvTfqNfaBMlRRoGEZ5" crossorigin="anonymous"></script>
   <script src="../js/supabase.js"></script>
   <script src="../js/auth/user.js"></script>
   <script src="../js/auth/logout.js"></script>

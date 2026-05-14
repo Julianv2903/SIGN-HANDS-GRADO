@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foro - Buzón de Sugerencias</title>
+  <title>Buscar contenido - SignHands</title>
   <link rel="stylesheet" href="foro.css">
   <link rel="stylesheet" href="../headerstyles.css">
   <link rel="icon" href="../imagenes/logoblack.png" type="image/x-icon">
@@ -26,34 +26,29 @@
               <a href="#" onclick="logout(); return false;">Cerrar sesión</a>
             </div>
           </div>
-          <a href="../SIGNIN/signin.html?redirectTo=../FORO/foro.html" id="login-link" class="sign-in">Ingresar</a>
+          <a href="../SIGNIN/signin.html?redirectTo=../BUSCAR/buscar.html" id="login-link" class="sign-in">Ingresar</a>
           <a href="../SIGNUP/signup.html" id="signup-link" class="sign-up">Registrarse</a>
         </div>
       </div>
     </header>
 
     <main class="content">
-      <h2>Buzón de sugerencias</h2>
+      <h2>Buscar recursos multimedia</h2>
 
-      <div id="forum-message" class="forum-message">Cargando el foro...</div>
+      <div class="search-grid">
+        <section class="search-left">
+          <div class="comment-card">
+            <h3>Describe lo que buscas</h3>
+            <textarea id="busqueda-contenido" placeholder="Escribe aquí el recurso que necesitas..." rows="10"></textarea>
+            <button id="btn-buscar" type="button">Buscar</button>
+          </div>
+        </section>
 
-      <section id="login-warning" class="forum-message hidden">
-        <p>Debes iniciar sesión para comentar.</p>
-        <a href="../SIGNIN/signin.html?redirectTo=../FORO/foro.html" class="btn">Iniciar sesión</a>
-      </section>
-
-      <section id="comment-status" class="forum-message hidden"></section>
-
-      <section id="comment-form-section" class="hidden">
-        <form id="comment-form">
-          <textarea id="comment-text" placeholder="Escribe tu sugerencia..." required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
-
-      <hr>
-
-      <section id="comments-section" class="comments-list"></section>
+        <section class="search-right">
+          <div id="search-message" class="forum-message">Describe lo que buscas en el área izquierda y aquí verás el recurso solicitado.</div>
+          <div id="search-preview" class="comments-list"></div>
+        </section>
+      </div>
     </main>
 
     <footer>
@@ -72,6 +67,6 @@
   <script src="../js/supabase.js"></script>
   <script src="../js/auth/user.js"></script>
   <script src="../js/auth/logout.js"></script>
-  <script src="../js/foro.js"></script>
+  <script src="../js/buscar.js"></script>
 </body>
 </html>

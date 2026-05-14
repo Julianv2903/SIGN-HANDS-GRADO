@@ -211,6 +211,27 @@ async function crearPerfilUsuarioSiNoExiste(userId, nombre, correo) {
   }
 }
 
+// ====== SPLASH DE BIENVENIDA ======
+function mostrarSplashBienvenida(nombre) {
+  return new Promise((resolve) => {
+    const splash = document.getElementById("login-splash");
+    const mensaje = document.getElementById("splash-message");
+    if (!splash || !mensaje) {
+      return resolve();
+    }
+
+    mensaje.textContent = `Bienvenido ${nombre}`;
+    splash.classList.remove("hidden");
+    splash.classList.add("visible");
+
+    setTimeout(() => {
+      splash.classList.remove("visible");
+      splash.classList.add("hidden");
+      resolve();
+    }, 2200);
+  });
+}
+
 // ====== MANEJADOR DEL FORMULARIO DE LOGIN ======
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -267,29 +288,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         // ====== OBTENER DATOS PERSONALES DEL USUARIO ======
         // Busca el nombre y otros datos en la tabla "usuarios"
         if (data.user) {
+          let nombreUsuario = "Usuario";
           let datosUsuario = await obtenerDatosUsuario(data.user.id);
 
           if (datosUsuario) {
             console.log("✓ Datos del usuario obtenidos:", datosUsuario);
-            alert("✓ Bienvenido " + (datosUsuario.nombre || "Usuario"));
+            nombreUsuario = datosUsuario.nombre || datosUsuario.correo || "Usuario";
           } else {
             console.log("⚠️ No existe fila de perfil en 'usuarios'. Creando perfil...");
-            const nombreMeta = data.user.user_metadata?.nombre || "Usuario";
-            const perfilCreado = await crearPerfilUsuarioSiNoExiste(data.user.id, nombreMeta, correo);
-            if (perfilCreado) {
-              alert("✓ Bienvenido " + nombreMeta);
-            } else {
-              alert("✓ Bienvenido a SignHands");
-            }
+            nombreUsuario = data.user.user_metadata?.nombre || "Usuario";
+            await crearPerfilUsuarioSiNoExiste(data.user.id, nombreUsuario, correo);
           }
 
+          await mostrarSplashBienvenida(nombreUsuario);
           await registrarInicioSesion(data.user.id);
         }
 
-        // ====== REDIRIGIR A LA PÁGINA PRINCIPAL ======
-        // Después del login exitoso, llevar al usuario a index.html
-        console.log("📍 Redirigiendo a página principal...");
-        window.location.href = "../index.html";
+        // ====== REDIRIGIR AL ORIGEN O A LA PÁGINA PRINCIPAL ======
+        const params = new URLSearchParams(window.location.search);
+        const redirectTo = params.get("redirectTo") || "../index.html";
+        console.log("📍 Redirigiendo a:", redirectTo);
+        window.location.href = redirectTo;
 
       } catch (err) {
         console.error("❌ Error al iniciar sesión:", err);

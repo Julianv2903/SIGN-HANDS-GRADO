@@ -139,4 +139,47 @@ body, html {
       margin-top: 10px;
     }
   }
+
+  .login-splash {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.88);
+    color: #fff;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .login-splash.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .splash-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    max-width: 420px;
+    width: 90%;
+  }
+
+  .splash-card h2 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .splash-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
   

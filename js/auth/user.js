@@ -111,6 +111,18 @@ function getRutaRelativa(rutaRelativa) {
   return prefijo + rutaRelativa;
 }
 
+function establecerRutaHerramientas() {
+  const toolsHref = getRutaRelativa("tools.html");
+  const enlaces = Array.from(document.querySelectorAll(".nav-links a"));
+
+  enlaces.forEach((link) => {
+    const texto = link.textContent.trim();
+    if (texto === "Herramientas" || link.getAttribute("href")?.includes("tools.html")) {
+      link.href = toolsHref;
+    }
+  });
+}
+
 function crearMenuHerramientas() {
   const navLinks = document.querySelector(".nav-links");
   if (!navLinks || document.getElementById("tools-dropdown-container")) {
@@ -146,7 +158,8 @@ function crearMenuHerramientas() {
   const herramientas = [
     { texto: "Alfabeto", ruta: "ALFABETO/alfabeto.html" },
     { texto: "Palabra del Día", ruta: "PALABRADIA/palabra.html" },
-    { texto: "Vocabulario", ruta: "VOCABULARIO/vocabulario.html" }
+    { texto: "Vocabulario", ruta: "VOCABULARIO/vocabulario.html" },
+    { texto: "Foro", ruta: "FORO/foro.html" }
   ];
 
   herramientas.forEach((item) => {
@@ -375,6 +388,7 @@ async function mostrarHeaderUsuario() {
 
 // Ejecutar al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+  establecerRutaHerramientas();
   crearMenuHerramientas();
   marcarPaginaActiva();
   mostrarHeaderUsuario();
