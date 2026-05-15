@@ -1,3 +1,6 @@
+/* Estilos para la página principal (index.html) */
+
+/* Reset y estilos base */
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +12,7 @@ body {
   background-color: #f8fafc;
 }
 
+/* Sección hero con imagen de fondo */
 .hero {
   background-image: url('imagenes/hand-3035665_1280.jpg');
   background-size: cover;
@@ -21,6 +25,7 @@ body {
   text-align: center;
 }
 
+/* Contenido del hero con fondo translúcido */
 .hero-content {
   background-color: rgba(30, 41, 59, 0.5); /* gris oscuro translúcido */
   padding: 40px;

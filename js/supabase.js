@@ -1,3 +1,5 @@
+// Configuración e inicialización del cliente Supabase
+
 if (window.supabase) {
   // La clave anon de Supabase es pública para el cliente.
   // No es una clave secreta del servidor, sino la clave que permite

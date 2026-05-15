@@ -1,3 +1,6 @@
+// Funciones para manejar el logout y gestión de sesiones
+
+// Esperar a que Supabase se inicialice
 function esperar(condicion, timeout = 5000) {
   return new Promise((resolve, reject) => {
     const inicio = Date.now();
@@ -14,12 +17,14 @@ function esperar(condicion, timeout = 5000) {
   });
 }
 
+// Obtener información de la sesión activa desde localStorage
 function obtenerSesionActiva() {
   const inicio = localStorage.getItem("signhandsSessionStart");
   const sessionId = localStorage.getItem("signhandsSessionId");
   return { inicio: inicio ? new Date(inicio) : null, sessionId };
 }
 
+// Obtener historial de sesiones desde localStorage
 function obtenerHistorialLocal() {
   try {
     return JSON.parse(localStorage.getItem("signhandsSessionHistory") || "[]");

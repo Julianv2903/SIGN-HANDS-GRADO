@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buscar contenido - SignHands</title>
+  <!-- Estilos del foro para mantener consistencia -->
   <link rel="stylesheet" href="foro.css">
   <link rel="stylesheet" href="../headerstyles.css">
   <link rel="icon" href="../imagenes/logoblack.png" type="image/x-icon">
 </head>
 <body>
+  <!-- Contenedor principal de la página -->
   <div class="page-container">
+    <!-- Header con navegación -->
     <header>
       <div class="navbar">
         <div class="logo">
@@ -32,10 +35,13 @@
       </div>
     </header>
 
+    <!-- Contenido principal de búsqueda -->
     <main class="content">
       <h2>Buscar recursos multimedia</h2>
 
+      <!-- Grid de búsqueda con panel izquierdo para input y derecho para resultados -->
       <div class="search-grid">
+        <!-- Panel izquierdo: área de texto para la consulta -->
         <section class="search-left">
           <div class="comment-card">
             <h3>Describe lo que buscas</h3>
@@ -44,6 +50,7 @@
           </div>
         </section>
 
+        <!-- Panel derecho: vista previa de resultados -->
         <section class="search-right">
           <div id="search-message" class="forum-message">Describe lo que buscas en el área izquierda y aquí verás el recurso solicitado.</div>
           <div id="search-preview" class="comments-list"></div>
@@ -63,6 +70,7 @@
     </footer>
   </div>
 
+  <!-- Scripts para funcionalidad de Supabase, autenticación y búsqueda -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" integrity="sha384-4eCDoMN/7A46qQ5Tj0rZ/D2VEolFGNIINDTLAcWZcvhkRSsvTfqNfaBMlRRoGEZ5" crossorigin="anonymous"></script>
   <script src="../js/supabase.js"></script>
   <script src="../js/auth/user.js"></script>

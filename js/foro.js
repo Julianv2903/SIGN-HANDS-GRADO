@@ -1,3 +1,6 @@
+// Funciones para manejar el foro de comentarios con Supabase
+
+// Obtener la sesión actual del usuario
 async function obtenerSesionSupabase() {
   const { data: { session }, error } = await window.supabaseClient.auth.getSession();
   if (error) {
@@ -9,6 +12,7 @@ async function obtenerSesionSupabase() {
 
 let forumUsuarioActual = null;
 
+// Formatear fecha ISO a formato legible en español
 function formatearFecha(fechaISO) {
   if (!fechaISO) return "";
   try {
@@ -24,6 +28,7 @@ function formatearFecha(fechaISO) {
   }
 }
 
+// Escapar caracteres HTML para prevenir XSS
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
@@ -33,6 +38,7 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// Cargar comentarios desde Supabase
 async function cargarComentarios() {
   const commentsSection = document.getElementById("comments-section");
   const forumMessage = document.getElementById("forum-message");
@@ -78,6 +84,7 @@ async function cargarComentarios() {
     .join("");
 }
 
+// Mostrar mensaje de estado para acciones de comentarios
 function mostrarEstadoComentario(texto, tipo = "success") {
   const statusBox = document.getElementById("comment-status");
   if (!statusBox) return;
@@ -91,6 +98,7 @@ function mostrarEstadoComentario(texto, tipo = "success") {
   }, 2500);
 }
 
+// Verificar conexión con Supabase
 async function comprobarConexionSupabase() {
   try {
     const { error } = await window.supabaseClient
@@ -129,6 +137,7 @@ async function eliminarComentario(id) {
   await cargarComentarios();
 }
 
+// Editar un comentario existente
 async function editarComentario(id) {
   const bodyEl = document.getElementById(`comment-body-${id}`);
   if (!bodyEl) return;
@@ -233,6 +242,7 @@ async function initForum() {
   await cargarComentarios();
 }
 
+// Inicializar el foro cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   initForum().catch((error) => {
     console.error("Error inicializando el foro:", error);

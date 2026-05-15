@@ -1,3 +1,6 @@
+/* Estilos generales del foro y búsqueda */
+
+/* Estilos del body */
 body{
     flex: 1; /* Este empuja el footer hacia abajo */
     font-family: inherit;

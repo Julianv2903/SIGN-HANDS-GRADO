@@ -1,3 +1,6 @@
+/* Estilos para el header y navegación compartidos */
+
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +20,7 @@ main {
   flex: 1;
 }
 
-/* Estilos base - no cambian */
+/* Estilos del header */
 header {
   color: #eee;
   position: relative;

@@ -1,3 +1,6 @@
+// Script para proteger páginas que requieren autenticación
+
+// Esperar a que Supabase se inicialice
 function esperar(condicion, timeout = 5000) {
   return new Promise((resolve, reject) => {
     const inicio = Date.now();
@@ -14,6 +17,7 @@ function esperar(condicion, timeout = 5000) {
   });
 }
 
+// Verificar si hay una sesión activa y redirigir si no
 async function verificarSesion() {
   try {
     await esperar(() => window.supabaseClient !== undefined);
@@ -32,4 +36,5 @@ async function verificarSesion() {
   }
 }
 
+// Ejecutar verificación al cargar la página
 verificarSesion();

@@ -1,3 +1,6 @@
+// Funciones para búsqueda en el foro
+
+// Escapar caracteres HTML para prevenir XSS
 function escapeHtml(text) {
   return text
     .replace(/&/g, "&amp;")
@@ -7,6 +10,7 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// Formatear fecha ISO a formato legible
 function formatearFecha(fechaISO) {
   if (!fechaISO) return "";
   try {
@@ -22,6 +26,7 @@ function formatearFecha(fechaISO) {
   }
 }
 
+// Cargar resultados de búsqueda desde Supabase
 async function cargarResultadosBusqueda(query = "") {
   const resultsSection = document.getElementById("search-results");
   const searchMessage = document.getElementById("search-message");
@@ -75,6 +80,7 @@ async function cargarResultadosBusqueda(query = "") {
     .join("");
 }
 
+// Inicializar búsqueda cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("busqueda-comentarios");
   const searchButton = document.getElementById("btn-buscar");

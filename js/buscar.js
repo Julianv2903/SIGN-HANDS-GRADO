@@ -1,3 +1,4 @@
+// Función para escapar caracteres HTML y prevenir XSS
 function escapeHtml(text) {
   return String(text)
     .replace(/&/g, "&amp;")
@@ -7,6 +8,7 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// Índice de búsqueda del sitio con contenido multimedia
 const siteSearchIndex = [
   {
     title: "Alfabeto de señas",
